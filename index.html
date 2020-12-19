@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ui challenge</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="assets/css/cards.css">
+    <link rel="stylesheet" href="assets/css/Custom-File-Upload.css">
+    <link rel="stylesheet" href="assets/css/News-Cards.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background: #141822;" >
+   
+
+    <div>
+        <div style="background: #141822;">
+            <h2 style="margin-top: 52px;margin-left: 34px;font-family: 'Open Sans', sans-serif;font-size: 22px;font-weight: 800;line-height: 32px;color: rgb(255,255,255);"></h2>
+            <!-- partial:index.partial.html -->
+   
+            <div>
+                <div class="container">
+                    <div class="cust_bloglistintro">
+                        <p style="margin-left:34px;color:rgba(255,255,255,0.5);font-size:14px;"></p>
+                    </div>
+
+            
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="container-image">
+   
+                                <div class="avatar-upload">
+                                    
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" style="background-image: url(https://banner2.cleanpng.com/20180615/rtc/kisspng-avatar-user-profile-male-logo-profile-icon-5b238cb002ed52.870627731529056432012.jpg);">
+                                        </div>
+                                    </div>
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />   
+                                        
+                  
+                                    </div>
+                                    <button style="color: white; margin-top: 5px; margin-left: 15px;" class="fa fa-camera btn bg-transparent">
+                                        <label for="imageUpload">Group logo</label>
+                                    </button> 
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div style="color: white; margin-top: 2rem; margin-left:" class="col-md-3">
+                            <h2>Create Group</h2>
+                            <label style="margin-top: 5rem">Name</label>
+                        <br>
+                            <label style="margin-top: 3rem;">Description</label>
+                        </div>
+                        
+                        <div  style="margin-top: 10rem;" class="col-md-3">  
+                            <div class="container">     
+                                    <input style="background: transparent;color:white;" type="text" class="form-control form-rounded" placeholder="group name">
+                            
+                                    <input style="background: transparent;color:white; margin-top: 3rem;" type="text" class="form-control form-rounded" placeholder="group description">
+
+                        </div>
+                    </div>
+                </div>        
+                <div class="card-body" id="root">
+
+                </div>            
+                <div class="col-md-3"></div>
+                        
+                <div class="col-md-6">
+                    <button class="btn btn-primary" type="button">Update</button>
+                            &nbsp;
+                    <button class="btn btn-danger" type="button">Remove</button></div>
+        </div>
+    </div>
+    </div>
+    <script>
+
+       function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#imageUpload").change(function() {
+    readURL(this);
+});
+
+
+    </script>
+
+    <script>
+        $.getJSON('https://s3-ap-southeast-1.amazonaws.com/he-public-data/users49b8675.json', function(data) {
+        
+        // var content = JSON.parse(data);
+    
+        var text = `Data: ${data.getJSON}<br>`
+        
+        console.log(data)
+        
+        $(".mypanel").html(text);
+    });
+    
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Custom-File-Upload.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

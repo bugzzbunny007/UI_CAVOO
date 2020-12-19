@@ -1,0 +1,67 @@
+.rounded-circle {
+  /*border-radius: 50%!important;*/
+}
+
+.form-rounded {
+  border-radius: 1rem;
+  }
+
+input.largerCheckbox { 
+    transform : scale(2); 
+} 
+body { 
+    text-align:center; 
+    margin-top:100px; 
+} 
+
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child), .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
+  border-color: rgb(12,129,247);
+  border-radius: 2px;
+}
+
+.input-group > .custom-select:not(:first-child), .input-group > .form-control:not(:first-child) {
+  border-radius: 2px;
+  border-color: rgb(228, 9, 9);
+}
+
+input[type="checkbox"][id^="myCheckbox"] {
+  display: none;
+}
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card1 {
+  flex: 1 0 20%;
+  position: relative;
+  margin: .1em;
+  padding: 2em;
+  min-height: 4em;
+  background: white;
+  border: 3px solid grey;
+}
+
+/* This is where the magic happens */
+input[type="checkbox"] {
+  position: absolute;
+  top: .1em;
+  right:.5em;
+}
+
+@media (pointer: coarse) { 
+  input[type="checkbox"] {
+    height: 5em;
+    width: 5em;
+  }
+}
+
+/* Use z-index to make it accessible to keyboard navigation */
+@media (hover: hover) {
+              input[type="checkbox"] { z-index: -1 }
+  .card:hover input[type="checkbox"],
+              input[type="checkbox"]:focus,
+              input[type="checkbox"]:checked { z-index: auto }
+}
